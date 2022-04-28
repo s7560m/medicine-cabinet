@@ -1,0 +1,16 @@
+.App {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#filled-basic {
+  width: 38vw;
+}
+
+#filled-basic-padding {
+  height: 20px;
+}
+
+#medicines-list-padding {
+  height: 100px;
+}

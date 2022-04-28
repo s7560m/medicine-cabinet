@@ -1,0 +1,18 @@
+#typographyStyling {
+    font-size: 18px;
+    font-family: 'roboto', serif;
+}
+
+#typographyContainerStyling {
+    width: 300px;
+}
+
+#textFieldStyling {
+    margin: auto;
+    width: 30vw;
+}
+
+#SearchContainer {
+    display: inline-block;
+}
+
