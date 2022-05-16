@@ -1,8 +1,5 @@
-# Getting Started with Create React Medicines
-
-This project was bootstrapped with [Create React Medicines](https://github.com/facebook/create-react-app).
-
-## Available Scripts
+# Medicine Cabinet
+Medicine cabinet is a small webapp designed with React, Material UI and Redux that allows users to add and remove medicines to their cabinets
 
 In the project directory, you can run:
 
