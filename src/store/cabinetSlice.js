@@ -7,6 +7,7 @@ const cabinetSlice = createSlice({
     reducers: {
         addToCabinet(state, action) {
             state.push(action.payload);
+
         },
         removeFromCabinet(state, action) {
             // map state array into just the IDs and then determine whether the queried ID exists. Delete from array if it does

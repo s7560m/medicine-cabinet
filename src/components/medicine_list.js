@@ -1,6 +1,6 @@
 import {Add, Medication} from "@mui/icons-material";
 import {Divider, IconButton, List, ListItem, ListItemIcon, ListItemText, Snackbar} from "@mui/material";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {addToCabinet} from '../store/cabinetSlice'
 import {useState} from "react";
 
@@ -8,6 +8,11 @@ const Medicine_list = (props) => {
 
     // set up snackbar state
     const [showSnackbar, setShowSnackbar] = useState(false);
+
+    /* Retrieve the current cabinet state and display it. */
+    const cabinet = useSelector((state) => {
+        return state.cabinet
+    });
 
     /* onClick event listener to pass medicine info to state. */
     const dispatch = useDispatch();
@@ -21,6 +26,16 @@ const Medicine_list = (props) => {
         }, 2000);
     }
 
+    console.log(cabinet);
+
+    const disableButton = (name) => {
+        // map the cabinet array to its respective names, then check if the input name
+        // is present in this newly mapped array
+        if (cabinet.map(medicine => medicine.getName()).indexOf(name) > -1) {
+            return true;
+        }
+    }
+
     /* Iterate over list of medicine names and print out each one.
        Also add an add button that will add the medicine to the cabinet's state */
     const listOfMedicines = props.medicines;
@@ -30,7 +45,7 @@ const Medicine_list = (props) => {
             <ListItem>
                 <ListItemIcon><Medication/></ListItemIcon>
                 <ListItemText>{medicine.getName()}</ListItemText>
-                <IconButton onClick={() => addMedicineToState(medicine)} edge="end" aria-label="delete">
+                <IconButton onClick={() => addMedicineToState(medicine)} disabled={disableButton(medicine.getName())} edge="end" aria-label="delete">
                     <Add/>
                 </IconButton>
             </ListItem>,
